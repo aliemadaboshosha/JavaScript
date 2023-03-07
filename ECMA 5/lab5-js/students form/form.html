@@ -1,0 +1,109 @@
+<html>
+<haed>
+    <style>
+        body {
+            margin: 70px 300px;
+            font-family: Andalus;
+            font-size: x-large;
+            font-weight: bold;
+            background-color: lightGrey;
+        }
+
+        [type=text],
+        [type=button] {
+            font-family: 'Century Gothic';
+            font-size: large;
+            width:200 ;
+        }
+
+        table {
+            width: 400px;
+
+        }
+
+        .SD {
+            background-color: lightpink;
+        }
+
+        .OS {
+            background-color: lightyellow;
+        }
+
+        .DotNet {
+            background-color: lightskyblue;
+        }
+
+        .btn {
+            background-color:lightskyblue;
+            border: none;
+            font-size: 16px;
+        }
+        .icons {
+            color: red;
+        }
+    </style>
+    <script src="functions.js"></script>
+    <script src="form.js"></script>
+    <script>
+        function sortSelectWay() {
+            let selectedMeun = document.querySelector("select[name=sortWay]");
+            let selectValue = selectedMeun.options[selectedMeun.selectedIndex].value;
+            if (selectValue == "byName")
+                sortTableByName();
+            else if (selectValue == "byGrade")
+                sortTableByGrade();
+        }
+        function selectFilterWay() {
+            let selectedMeun = document.querySelector("select[name=filterWay]");
+            let selectValue = selectedMeun.options[selectedMeun.selectedIndex].value;
+            if (selectValue == "byFailed")
+                filterTableByFailed();
+            else if (selectValue == "bySuccess")
+                filterTableBySuccess();
+        }
+    </script>
+</haed>
+
+<body>
+    <form>
+        <table border="0" cellpadding="5" cellspacing="10">
+            <tr align="center">
+                <td>Department</td>
+                <td><input name="department" type="radio" value="SD">SD</td>
+                <td><input name="department" type="radio" value="OS">OS</td>
+                <td><input name="department" type="radio" value="DotNet" checked>DotNet</td>
+            </tr>
+            <tr align="center">
+                <td colspan="2">Student Name</td>
+                <td colspan="2"><input name="studentName" type="text" required></td>
+            </tr>
+            <tr align="center">
+                <td colspan="2">Student Grade</td>
+                <td colspan="2"><input name="studentGrade" type="text" required></td>
+            </tr>
+            <tr align="center">
+                <td colspan="4">
+                    <input type="button" value="Add">
+                </td>
+            </tr>
+            <tr align="center">
+                <td colspan="2">Sort</td>
+                <td colspan="2"><select name="sortWay" onchange="sortSelectWay();">
+                        <option selected>Select Sorted Way</option>
+                        <option value="byName">Name</option>
+                        <option value="byGrade">Grade</option>
+                    </select></td>
+            </tr>
+            <tr align="center">
+                <td colspan="2">Filter</td>
+                <td colspan="2"><select name="filterWay" onchange="selectFilterWay();">
+                        <option selected>Select Filter Way</option>
+                        <option value="byFailed">Faild Student</option>
+                        <option value="bySuccess">Success Student</option>
+                    </select></td>
+            </tr>
+        </table>
+    </form>
+</body>
+
+</html>

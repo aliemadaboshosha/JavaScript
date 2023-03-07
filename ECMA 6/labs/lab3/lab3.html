@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <title>lab3</title>
+
+        
+    </head>
+    <body bgcolor="#444444">
+                             <div>
+                                  <div>
+                                          <label><font color="white" size="5"  >Show</font> 
+                                                   <select name="example_length" aria-controls="example" size="1" style="width: 100px;" onclick="search()">
+                    
+                                                    <option value="3" >3</option>
+                                                    <option value="4" >4</option>
+                                                    <option value="5" >5</option>
+                                                    <option value="6">6</option>
+                                                    <option value="7" >7</option>
+                                                    <option value="8" >8</option>
+                                                    <option value="9" >9</option>
+                                                    <option value="10">10</option>
+                    
+                                                   </select> <font color="white" size="5"  >Users</font> 
+                                          </label>
+                                  </div>
+
+                                  <div align="right">
+                                        <label></select> <font color="white" size="5"  >Search:</font>
+                                            <input type="search">
+                                        </label>
+                                  </div>
+                             </div>
+        <table  align="center" cellspacing="4" cellpadding="10" bgcolor="#444444" >
+            <thead>
+                
+                <tr align="center">
+                    <th></th>
+                    <th colspan="6" bgcolor="#2c2c2c" ><font color="#0ed145" size="5">User Data</font></th>
+                    <th colspan="6" bgcolor="#2c2c2c" ><font color="#05b2d0" size="5">User Address</font></th>
+                    <th colspan="3" bgcolor="#2c2c2c" ><font color="#f8ec00" size="5">user Company Data</font></th>
+            
+                 
+                    
+                    </tr>
+                    <tr align="center">
+                        <th></th>
+                        <th bgcolor="#0ed145"><font color="white" size="5" >Id</font></th>
+                        <th  onclick="sortAnyProperty(showList(),'name')" bgcolor="#0ed145"><font color="white" size="5"  >Name</font></th>
+                        <th onclick="sortAnyProperty(showList(),'username')" bgcolor="#0ed145"><font color="white" size="5">User Name</font></th>
+                        <th onclick="sortAnyProperty(showList(),'email')" bgcolor="#0ed145"><font color="white" size="5">Email</font></th>
+                        <th onclick="sortAnyProperty(showList(),'phone')" bgcolor="#0ed145"><font color="white" size="5">Phone</font></th>
+                        <th onclick="sortAnyProperty(showList(),'website')" bgcolor="#0ed145"><font color="white" size="5">website</font></th>
+                        <th bgcolor="#01b8e2"><font color="white" size="5">City</font></th>
+                        <th bgcolor="#01b8e2"><font color="white" size="5">Street</font></th>
+                        <th colspan="2" bgcolor="#01b8e2"><font color="white" size="5">Geo</font></th>
+                        <th onclick="sortAnyProperty(showList(),'address.suite')" bgcolor="#01b8e2"><font color="white" size="5">Suite</font></th>
+                        <th onclick="sortAnyProperty(showList(),'address.zipcode')" bgcolor="#01b8e2"><font color="white" size="5">Zip Code</font></th>
+                        <th bgcolor="#f8ec00"><font color="white" size="5">Name</font></th>
+                        <th bgcolor="#f8ec00"><font color="white" size="5">Catch Phrase</font></th>
+                        <th bgcolor="#f8ec00"><font color="white" size="5">Bs</font></th>
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+                        </tr>
+            </thead>
+           
+
+
+
+        </table>
+        
+
+        <script src="tableData.js"></script>
+
+    </body>
+</html>

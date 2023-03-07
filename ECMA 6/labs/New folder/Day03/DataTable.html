@@ -1,0 +1,116 @@
+<html>
+    <head>
+        <style>
+            Table
+            {
+            width:800px;
+            border-spacing:2px;
+            }
+            tr {
+                    background-color: #DDD;
+                }
+        </style>
+     <script>
+
+        (async function callPostsApi(){
+        let lists=await fetch("https://jsonplaceholder.typicode.com/todos");
+        let listsObj=await lists.json();
+        let table=document.querySelectorAll('table')[0];
+        let selecttor=document.querySelectorAll('select')[0];
+        let search=document.getElementById('search');
+        selecttor.addEventListener("change",function(){
+            let value=selecttor.value;
+            newlist=listsObj.slice(0,value);
+            clearTable(table);
+            newlist.forEach(list => {
+            //table.innerHTML+= `<tr><td>${list.id}</td><td>${list.title}</td><td>${list.completed}</td></tr>`
+            createRow(list);
+      
+        });
+        });
+        search.addEventListener("keyup",function(){
+            console.log('search');
+            let cleanScriptFlag=false;
+            listsObj.forEach(list =>{
+                if(list.title.includes(search.value)==true){
+                    if(cleanScriptFlag==false){
+                        clearTable(table);
+                        cleanScriptFlag=true;
+                    }
+                    
+                    //table.innerHTML+= `<tr><td>${list.id}</td><td>${list.title}</td><td>${list.completed}</td></tr>`;
+                    createRow(list);
+                }
+            }   
+
+            );
+        });
+
+    
+        listsObj.forEach(list => {
+        
+            createRow(list);
+        });
+       
+       function createRow(obj){
+         let row= document.createElement('tr');
+         let tdId=document.createElement('td');
+         let tdtTitle=document.createElement('td');
+         let tdCompleted=document.createElement('td');
+         let tdDelete=document.createElement('td');
+         tdId.innerText=obj.id;
+         tdtTitle.innerText=obj.title;
+         tdCompleted.innerText=obj.completed;
+         tdDelete.innerHTML=`<img src="./images/delete.png">`;
+         tdDelete.addEventListener('click',function(){
+            this.parentElement.remove();
+            
+            })
+         row.append(tdId);
+         row.append(tdtTitle);
+         row.append(tdCompleted);
+         row.append(tdDelete);
+         table.append(row);
+
+        }
+        function clearTable(_table){
+          _table.innerHTML=`<thead>
+                                <th>Task Number</th>
+                                <th>To Do</th>
+                                <th>Completed</th>
+                                <th>delete</th>
+                            </thead>`
+        }
+        
+        })();
+
+     </script>
+
+
+    </head>
+    <body>
+        <label>"show"
+        <select name="select">
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+    
+        </select>
+        "eteries"
+    </label>
+    <label>
+        "search"
+        <input type="input" id="search">
+    </label>
+    <table >    
+        <thead>
+            <th>Task Number</th>
+            <th>To Do</th>
+            <th>Completed</th>
+            <th>delete</th>
+        </thead>
+   </table>
+
+    </body>
+</html>
